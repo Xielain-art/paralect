@@ -1,20 +1,23 @@
 import React from 'react';
-import {
-    Box,
-    Text,
-    Link,
-    VStack,
-    Code,
-    Grid,
-    theme,
-} from '@chakra-ui/react';
-import NavBar from "./components/NavBar";
+import Header from "./components/NavBar";
+import {Container} from "@chakra-ui/react";
+import IndexPage from "./components/IndexPage";
+import {Route, Routes} from 'react-router-dom'
+import Layout from "./components/Layout";
+import UserPage from "./components/UserPage";
 
 function App() {
     return (
-        <>
-            <NavBar/>
-        </>
+        <Routes>
+            <Route path='/'
+                   element={<Layout/>}>
+                <Route path='/'
+                       element={<IndexPage/>}/>
+                <Route path='/user'
+                       element={<UserPage/>}/>
+            </Route>
+        </Routes>
+
     );
 }
 
